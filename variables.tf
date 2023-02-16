@@ -8,6 +8,10 @@ variable "vpc_cidr_block"{
     default = "10.0.0.0/16"
     type= string
 }
+variable "internetgateway_cidr"{
+    default="0.0.0.0/0"
+    type=string
+}
 variable "profile"{
     default="dev"
     type= string
