@@ -1,4 +1,4 @@
-# aws-infra
+# AWS-infra
 
 ## Creating AWS Infrastructure using Terraform
 
