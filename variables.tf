@@ -68,3 +68,86 @@ variable "owner_id" {
   type    = list(string)
 }
 
+#s3 bucket
+variable "bucketname" {
+  default = "csye6225-s3-product-image"
+  type    = string
+}
+variable "days" {
+  default = 30
+  type    = number
+}
+variable "bucket_prefix" {
+  default = "csye6225-s3"
+  type    = string
+}
+variable "storage_class" {
+  default = "STANDARD_IA"
+  type    = string
+}
+variable "sse_algorithm" {
+  default = "STANDARD_IA"
+  type    = string
+}
+
+#rds
+variable "allocated_storage" {
+  default = 10
+  type    = number
+}
+variable "db_name" {
+  default = "csye6225"
+  type    = string
+}
+variable "engine" {
+  default = "mysql"
+  type    = string
+}
+variable "identifier" {
+  default = "csye6225"
+  type    = string
+}
+variable "username" {
+  default = "csye6225"
+  type    = string
+}
+variable "instance_class" {
+  default = "db.t3.micro"
+  type    = string
+}
+variable "storage_type" {
+  default = "gp2"
+  type    = string
+}
+variable "password" {
+  default = "Radhasoam!21"
+  type    = string
+}
+variable "engine_version" {
+  default = "5.7"
+  type    = string
+}
+#cidr_port
+variable "vpc_cidr_block_22" {
+  default = ["0.0.0.0/0"]
+  type    = list(string)
+}
+variable "vpc_cidr_block_80" {
+  default = ["0.0.0.0/0"]
+  type    = list(string)
+}
+variable "vpc_cidr_block_443" {
+  default = ["0.0.0.0/0"]
+  type    = list(string)
+}
+variable "egress_cidr_1" {
+  default = ["0.0.0.0/0"]
+  type    = list(string)
+}
+variable "egress_cidr_2" {
+  default = ["0.0.0.0/0"]
+  type    = list(string)
+}
+
+
+
