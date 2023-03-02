@@ -18,3 +18,28 @@ owner_id     = ["460413207367"]
 instanceType = "t2.micro"
 volumeSize   = 50
 volumeType   = "gp2"
+
+#rds
+ allocated_storage    = 10
+  db_name              = "csye6225"
+  engine               = "mysql"
+  engine_version       = "5.7"
+  identifier           = "csye6225"
+  instance_class       = "db.t3.micro"
+  username             = "csye6225"
+  password             = "PasswordTry!2022"
+  storage_type         = "gp2"
+
+  #bucket
+  bucket_prefix = "csye6225-s3"
+  storage_class = "STANDARD_IA"
+  days= 30
+  sse_algorithm = "AES256"
+
+  #cidr_security_grp
+  vpc_cidr_block_80 = ["0.0.0.0/0"]
+  vpc_cidr_block_22 = ["0.0.0.0/0"]
+ vpc_cidr_block_443 = ["0.0.0.0/0"]
+ egress_cidr_1 = ["0.0.0.0/0"]
+ egress_cidr_2 = ["0.0.0.0/0"]
+    
