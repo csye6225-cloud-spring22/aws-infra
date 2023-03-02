@@ -30,6 +30,8 @@ volumeType   = "gp2"
   password             = "PasswordTry!2022"
   storage_type         = "gp2"
 
+  
+
   #bucket
   bucket_prefix = "csye6225-s3"
   storage_class = "STANDARD_IA"
