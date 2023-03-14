@@ -1,4 +1,4 @@
-profile = "dev"
+profile = "demo"
 region  = "us-east-1"
 
 # availabilityZones = [ "us-east-1a","us-east-1b","us-east-1c"]
@@ -46,6 +46,6 @@ volumeType   = "gp2"
  egress_cidr_2 = ["0.0.0.0/0"]
 
  #route53
- record_name = "dev.namrataruchandani.me"
-#  zone_id ="Z086454422QS54M8Z4PMR"
+ record_name = "prod.namrataruchandani.me"
+#  zone_id ="Z0723592RYST5MA9D4JZ"
     

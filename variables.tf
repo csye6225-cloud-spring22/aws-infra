@@ -120,7 +120,6 @@ variable "storage_type" {
   type    = string
 }
 variable "password" {
-  default = "Radhasoam!21"
   type    = string
 }
 variable "engine_version" {
@@ -147,6 +146,16 @@ variable "egress_cidr_1" {
 variable "egress_cidr_2" {
   default = ["0.0.0.0/0"]
   type    = list(string)
+}
+
+#route53
+variable "record_name" {
+  default = "dev.namrataruchandani.me"
+  type    = string
+}
+variable "zone_id" {
+  default = "Z086454422QS54M8Z4PMR"
+  type    = string
 }
 
 
