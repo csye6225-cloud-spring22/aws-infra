@@ -40,6 +40,12 @@ resource "aws_instance" "instance-webapp" {
   echo DB_HOST="${aws_db_instance.mydb.address}" >> .env
   echo AWS_Bucket_name="${aws_s3_bucket.buckets3.bucket}" >> .env
   echo PORT="8000" >> .env
+
+  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+    -a fetch-config \
+    -m ec2 \
+    -c file:/home/ec2-user/cw_log.json \
+    -s
     
 
   sudo systemctl daemon-reload
