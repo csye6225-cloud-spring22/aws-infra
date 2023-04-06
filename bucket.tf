@@ -29,5 +29,13 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "encryption_resour
     }
   }
 }
+resource "aws_s3_bucket_public_access_block" "blocking_public_access" {
+  bucket = aws_s3_bucket.buckets3.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
 # aws s3 rm s3://s3-csye-6225-product-image --recursive --profile dev
 
