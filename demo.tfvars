@@ -20,32 +20,44 @@ volumeSize   = 50
 volumeType   = "gp2"
 
 #rds
- allocated_storage    = 10
-  db_name              = "csye6225"
-  engine               = "mysql"
-  engine_version       = "5.7"
-  identifier           = "csye6225"
-  instance_class       = "db.t3.micro"
-  username             = "csye6225"
-  password             = "PasswordTry!2022"
-  storage_type         = "gp2"
+allocated_storage = 10
+db_name           = "csye6225"
+engine            = "mysql"
+engine_version    = "5.7"
+identifier        = "csye6225"
+instance_class    = "db.t3.micro"
+username          = "csye6225"
+password          = "PasswordTry!2022"
+storage_type      = "gp2"
 
-  
 
-  #bucket
-  bucket_prefix = "csye6225-s3"
-  storage_class = "STANDARD_IA"
-  days= 30
-  sse_algorithm = "AES256"
 
-  #cidr_security_grp
-  vpc_cidr_block_80 = ["0.0.0.0/0"]
-  vpc_cidr_block_22 = ["0.0.0.0/0"]
- vpc_cidr_block_443 = ["0.0.0.0/0"]
- egress_cidr_1 = ["0.0.0.0/0"]
- egress_cidr_2 = ["0.0.0.0/0"]
+#bucket
+bucket_prefix = "csye6225-s3"
+storage_class = "STANDARD_IA"
+days          = 30
+sse_algorithm = "AES256"
 
- #route53
- record_name = "prod.namrataruchandani.me"
+#cidr_security_grp
+vpc_cidr_block_80  = ["0.0.0.0/0"]
+vpc_cidr_block_22  = ["0.0.0.0/0"]
+vpc_cidr_block_443 = ["0.0.0.0/0"]
+egress_cidr_1      = ["0.0.0.0/0"]
+egress_cidr_2      = ["0.0.0.0/0"]
+
+#route53
+record_name = "prod.namrataruchandani.me"
 #  zone_id ="Z0723592RYST5MA9D4JZ"
-    
+
+#launchTemplate
+template_volume = 20
+
+#autoBalancing
+min_size         = 1
+max_size         = 3
+cooldown_period  = 60
+desired_capacity = 1
+
+#cloud_watch
+target_value_up   = "5"
+target_value_down = "3"

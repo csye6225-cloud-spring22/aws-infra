@@ -4,26 +4,29 @@ resource "aws_security_group" "a04security" {
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    cidr_blocks = var.vpc_cidr_block_22
-    description = "giving access for SSH"
-    from_port   = 22
-    protocol    = "tcp"
-    to_port     = 22
+    # cidr_blocks = var.vpc_cidr_block_22
+    description     = "giving access for SSH"
+    from_port       = 22
+    protocol        = "tcp"
+    to_port         = 22
+    security_groups = [aws_security_group.lb_security_grp.id]
   }
 
   ingress {
-    cidr_blocks = var.vpc_cidr_block_80
-    description = "giving access for HTTP"
-    from_port   = 80
-    protocol    = "tcp"
-    to_port     = 80
+    # cidr_blocks = var.vpc_cidr_block_80
+    description     = "giving access for HTTP"
+    from_port       = 80
+    protocol        = "tcp"
+    to_port         = 80
+    security_groups = [aws_security_group.lb_security_grp.id]
   }
   ingress {
-    cidr_blocks = var.vpc_cidr_block_443
-    description = "giving access for HTTPS"
-    from_port   = 443
-    protocol    = "tcp"
-    to_port     = 443
+    # cidr_blocks = var.vpc_cidr_block_443
+    description     = "giving access for HTTPS"
+    from_port       = 443
+    protocol        = "tcp"
+    to_port         = 443
+    security_groups = [aws_security_group.lb_security_grp.id]
   }
 
   egress {
@@ -59,5 +62,32 @@ resource "aws_security_group" "database_access" {
     protocol         = "-1"
     cidr_blocks      = var.egress_cidr_2
     ipv6_cidr_blocks = ["::/0"]
+  }
+}
+
+resource "aws_security_group" "lb_security_grp" {
+  vpc_id = aws_vpc.main.id
+  ingress {
+    protocol    = "tcp"
+    from_port   = "80"
+    to_port     = "80"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+  ingress {
+    protocol    = "tcp"
+    from_port   = 443
+    to_port     = 443
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    Name = "csye6225_lb_security_grp"
   }
 }

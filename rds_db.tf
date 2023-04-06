@@ -22,7 +22,7 @@ resource "aws_db_instance" "mydb" {
   password             = var.password
   storage_type         = var.storage_type
   storage_encrypted    = true
-  skip_final_snapshot = true
+  skip_final_snapshot  = true
 
   db_subnet_group_name = aws_db_subnet_group.privateSubnet_group.name
 

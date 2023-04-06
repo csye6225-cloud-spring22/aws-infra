@@ -1,32 +1,32 @@
 
 
-resource "aws_iam_policy" "WebAppS3" { 
+resource "aws_iam_policy" "WebAppS3" {
 
-    depends_on = [
-      aws_s3_bucket.buckets3
-    ]
+  depends_on = [
+    aws_s3_bucket.buckets3
+  ]
 
   name = "WebAppS3"
 
-#   policy = "${file("s3-policy.json")}"
+  #   policy = "${file("s3-policy.json")}"
   policy = jsonencode(
     {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Action": [
-                    "s3:PutObject",
-                    "s3:GetObject",
-                    "s3:DeleteObject"
-                ],
-                "Effect": "Allow",
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Action" : [
+            "s3:PutObject",
+            "s3:GetObject",
+            "s3:DeleteObject"
+          ],
+          "Effect" : "Allow",
 
-                "Resource": [
-                    "arn:aws:s3:::${aws_s3_bucket.buckets3.bucket}",
-                    "arn:aws:s3:::${aws_s3_bucket.buckets3.bucket}/*"
-                ]
-            }
-        ]
+          "Resource" : [
+            "arn:aws:s3:::${aws_s3_bucket.buckets3.bucket}",
+            "arn:aws:s3:::${aws_s3_bucket.buckets3.bucket}/*"
+          ]
+        }
+      ]
     }
   )
 
@@ -35,9 +35,9 @@ resource "aws_iam_policy" "WebAppS3" {
 resource "aws_iam_role" "EC2-CSYE6225" {
   name = "EC2-CSYE6225"
 
-      depends_on = [
-      aws_s3_bucket.buckets3
-    ]
+  depends_on = [
+    aws_s3_bucket.buckets3
+  ]
 
   # assume_role_policy = file("s3-policy.json")
 

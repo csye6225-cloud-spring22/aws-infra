@@ -120,7 +120,7 @@ variable "storage_type" {
   type    = string
 }
 variable "password" {
-  type    = string
+  type = string
 }
 variable "engine_version" {
   default = "5.7"
@@ -158,5 +158,39 @@ variable "zone_id" {
   type    = string
 }
 
+#launchTemplate
+
+variable "template_volume" {
+  default = 20
+  type    = number
+}
+
+#autoBalancing
+variable "min_size" {
+  default = 1
+  type    = number
+}
+variable "max_size" {
+  default = 3
+  type    = number
+}
+variable "desired_capacity" {
+  default = 1
+  type    = number
+}
+variable "cooldown_period" {
+  default = 60
+  type    = number
+}
+
+#cloud_watch
+variable "target_value_up" {
+  default = "5"
+  type    = string
+}
+variable "target_value_down" {
+  default = "3"
+  type    = string
+}
 
 
