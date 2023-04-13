@@ -2,10 +2,15 @@ resource "aws_launch_template" "launchTemplate" {
 
   name = "launch-template-CSYE6225"
   block_device_mappings {
-    device_name = "/dev/sdf"
+    device_name = "/dev/xvda"
 
+    # ebs {
+    #   volume_size = var.template_volume
+    # }
     ebs {
-      volume_size = var.template_volume
+      volume_size = 20
+      encrypted   = true
+      kms_key_id  = aws_kms_key.ebsKey.arn
     }
 
   }

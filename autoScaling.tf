@@ -7,8 +7,11 @@ resource "aws_autoscaling_group" "autoScaling-group" {
 
   min_size = var.min_size
 
+  name = "terraform_creation"
+
   launch_template {
     id = aws_launch_template.launchTemplate.id
+    version = "$Latest"
   }
 
   default_cooldown = var.cooldown_period
