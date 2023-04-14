@@ -3,14 +3,14 @@ resource "aws_security_group" "a04security" {
   description = "Here is the terraform security group for a04"
   vpc_id      = aws_vpc.main.id
 
-  ingress {
-    cidr_blocks = var.vpc_cidr_block_22
-    description     = "giving access for SSH"
-    from_port       = 22
-    protocol        = "tcp"
-    to_port         = 22
-    # security_groups = [aws_security_group.lb_security_grp.id]
-  }
+  # ingress {
+  #   cidr_blocks = var.vpc_cidr_block_22
+  #   description     = "giving access for SSH"
+  #   from_port       = 22
+  #   protocol        = "tcp"
+  #   to_port         = 22
+  #   # security_groups = [aws_security_group.lb_security_grp.id]
+  # }
 
   ingress {
     # cidr_blocks = var.vpc_cidr_block_80
